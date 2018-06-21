@@ -8,15 +8,15 @@ TASK: milk2
 import sys
 sys.stderr.write('message')
 
-sys.stdin = open('milk2.in', 'r')
-sys.stdout = open('milk2.out', 'w')
+fin = open('milk2.in', 'r')
+fout = open('milk2.out', 'w')
 
-n = int(sys.stdin.readline())
+n = int(fin.readline())
 
 time = []
 
 for i in range(n):
-      time.append([int(x) for x in sys.stdin.readline().split()])
+      time.append([int(x) for x in fin.readline().split()])
 
 time.sort(key=lambda x: x[0])
 
@@ -39,6 +39,6 @@ for i in range(1, len(time)):
             end = time[i][1]
             cont = end - start
 
-sys.stdout.write(str(max(continuous)) + ' ' + str(max(idle)) + '\n')
-sys.stdin.close()
-sys.stdout.close()
+fout.write(str(max(continuous)) + ' ' + str(max(idle)) + '\n')
+fin.close()
+fout.close()
